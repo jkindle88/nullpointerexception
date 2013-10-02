@@ -3,13 +3,30 @@
 	    <script src="js/jquery-2.0.3.js"></script>
    		<script src="js/angular.js"></script>
     	<script src="js/app.js"></script>
+	<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
     	<link rel="stylesheet" type="text/css" href="css/style.css">
  		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	</head>
 	<body>
-		<h1>Paul Beresuita</h1>
-		<h1>Eugen Istoc</h1>
-		<h1>Joe Kindle 2</h1>
-		<h2>Kindle fire rocks</h2>
+		<h1>Team Null Pointer Exception</h1>
+		<br>
+		Enter your ATTUID: 
+		<input type="text" size="25">
+		<button type="submit" name="UIDSubmitButton">Submit</button> 
+		<br><br>
+		<form onsubmit="parseSubmit">
 	</body>
 </html>
+
+<script type="text/javascript" name="parseSubmit">
+	//Parse test code
+	Parse.initialize("0KNVOKg5KNqqDZgXYfDTNd4ZQWvkoXd70HyWqYFF", "AZAjLdDa6B7vYjwKmOaPYFHt05yckFwXo0fAHN9C");
+	var TestObject = Parse.Object.extend("TestObject");
+	var testObject = new TestObject();
+	testObject.save({foo: "bar"}, {
+	success: function(object) {
+	alert("yay! it worked");
+	}
+});
+
+</script>
