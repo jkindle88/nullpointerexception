@@ -1,63 +1,107 @@
 <html>
-	<head>		
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<head>		
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
-	    <script src="js/jquery-2.0.3.js"></script>
-	    <script src="js/classie.js"></script>
-   		<script src="js/angular.js"></script>
-    	<script src="js/app.js"></script>
-		<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+	<script src="js/jquery-2.0.3.js"></script>
+	<script src="js/classie.js"></script>
+	<script src="js/angular.js"></script>
+	<script src="js/app.js"></script>
+	<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 
-    	<link rel="stylesheet" type="text/css" href="css/style.css">
- 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
- 		<link rel="stylesheet" type="text/css" href="css/default.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-	</head>
-	<body class="cbp-spmenu-push">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<link rel="stylesheet" type="text/css" href="css/flat-ui.css" >
+</head>
+<body class="cbp-spmenu-push">
+	<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1" style="background:#f37e30;">
+		<h3>Menu</h3>
+		<a href="index.html">Home</a>
+		<a href="vacationforecast.html">Vacation Forecast</a>
+		<a href="egobooster.html">Ego Booster</a>
+	</nav>
 
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1" style="background:#f37e30;">
-			<h3>Menu</h3>
-			<a href="index.html">Home</a>
-			<a href="vacationforecast.html">Vacation Forecast</a>
-			<a href="egobooster.html">Ego Booster</a>
+	<div id="main" style="background-color:#34495E; padding-bottom:9999px;">
+		<nav class="navbar navbar-default" role="navigation" style="background-image:url('images/attheader_1680x68_iClock.png'); background-repeat: no-repeat; background-size:cover; border-bottom: solid; border-color: #ffffff; border-width: 1px; border-radius:0px;">
+			<ul class="nav navbar-nav">
+				<img src="images/logo.png" class="img-responsive" width="60px" id="showLeftPush" style="margin-left: 40px; padding-top: 4px; padding-bottom:4px;
+				" />
+			</ul>
 		</nav>
+		<div class="container">
 
-		<div id="main">
-				<nav class="navbar navbar-default" role="navigation" style="background-image:url('images/attheader_1680x68_iClock.png'); background-repeat: no-repeat; background-size:contain;">
-				    <ul class="nav navbar-nav navbar-right">
-				   		<button type="submit" class="btn btn-default">Submit</button>
-				    </ul>
-				</nav>
-
-				<h1>Vacation Forecast Page</h1>
-
-				<section class="buttonset" style="padding-top: 100px;">
-					<!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
-					<button id="showLeftPush">Menu</button>
-				</section>
+			<div class="row">
+				<div class="col-xs-12">
+				</div>
+			</div>
+			<div class="row height-6em">
+				<div class="col-xs-2 palette palette-carrot height-max" id="ribbon-today">
+					<div class="ribbon">
+						<span class="rotate">TODAY</span>
+					</div>
+				</div>
+				<div class="col-xs-10 palette palette-pumpkin height-max">
+					<center><h3>2.82 hours</h3></center>
+				</div>	
+			</div>
+			<div class="row"><br/></div>
+			<div class="row height-6em">
+				<div class="col-xs-2 palette palette-carrot height-max" id="ribbon-week">
+					<div class="ribbon">
+						<span>WEEK</span>
+					</div>
+				</div>
+				<div class="col-xs-10 palette palette-pumpkin height-max">
+					<table class="table table-striped">
+						<tr>
+							<th>Day</th>
+							<th>Time</th>
+							<th></th>
+						</tr>
+						<tr>
+							<td>Monday</td>
+							<td>7.2 Hours</td>
+							<td><span class="glyphicon glyphicon-chevron-down"></span></td>
+						</tr>
+					</table>
+				</div>	
+			</div>
 		</div>
+	</div>
+	<script>
+		var menuLeft = document.getElementById( 'cbp-spmenu-s1' );
+		var showLeftPush = document.getElementById( 'showLeftPush' );
+		var body = document.body;
 
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' );
-			var showLeftPush = document.getElementById( 'showLeftPush' );
-			var body = document.body;
+		showLeftPush.onclick = function() {
+			classie.toggle( this, 'active' );
+			classie.toggle( body, 'cbp-spmenu-push-toright' );
+			classie.toggle( menuLeft, 'cbp-spmenu-open' );
+			disableOther( 'showLeftPush' );
+		};
 
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
+		function disableOther( button ) {
 
-			function disableOther( button ) {
-
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-
+			if( button !== 'showLeftPush' ) {
+				classie.toggle( showLeftPush, 'disabled' );
 			}
-		</script>
-	</body>
+
+		}
+	</script>
+</body>
 </html>
+<!-- 
+<script type="text/javascript" name="parseSubmit">
+	//Parse test code
+	Parse.initialize("0KNVOKg5KNqqDZgXYfDTNd4ZQWvkoXd70HyWqYFF", "AZAjLdDa6B7vYjwKmOaPYFHt05yckFwXo0fAHN9C");
+	var TestObject = Parse.Object.extend("TestObject");
+	var testObject = new TestObject();
+	testObject.save({foo: "bar"}, {
+	success: function(object) {
+	alert("yay! it worked");
+	}
+});
+</script> -->
