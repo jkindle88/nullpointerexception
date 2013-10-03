@@ -15,9 +15,44 @@
  		<link rel="stylesheet" type="text/css" href="css/default.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
 	</head>
-	<body>
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="padding-top: 70px; background-image:url('images/attheader_1680x68_iClock.png'); background-repeat: no-repeat; background-size:contain;">
+	<body class="cbp-spmenu-push">
+
+		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+			<h3>Menu</h3>
+			<a href="#">Home</a>
+			<a href="#">Vacation Forecast</a>
+			<a href="#">Ego Booster</a>
 		</nav>
+
+		<div id="main">
+				<nav class="navbar navbar-default" role="navigation" style="padding-top: 70px; background-image:url('images/attheader_1680x68_iClock.png'); background-repeat: no-repeat; background-size:contain;">
+		</nav>
+				<section class="buttonset" style="padding-top: 100px;">
+					<!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
+					<button id="showLeftPush">Menu</button>
+				</section>
+		</div>
+
+		<script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' );
+			var showLeftPush = document.getElementById( 'showLeftPush' );
+			var body = document.body;
+
+			showLeftPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toright' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeftPush' );
+			};
+
+			function disableOther( button ) {
+
+				if( button !== 'showLeftPush' ) {
+					classie.toggle( showLeftPush, 'disabled' );
+				}
+
+			}
+		</script>
 	</body>
 </html>
 <!-- 
