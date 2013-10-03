@@ -7,8 +7,8 @@
 	<script src="js/jquery-2.0.3.js"></script>
     <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
 	<script src="js/classie.js"></script>
-	<script src="js/angular.js"></script>
-	<script src="js/app.js"></script>
+	<!--<script src="js/angular.js"></script>-->
+	<!--<script src="js/app.js"></script>-->
 	<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -35,6 +35,15 @@
 			</ul>
 		</nav>
 		<div class="container">
+			<form class="login-form" id="login-form">
+			  <h2>Log In</h2>
+			  <div class="error" style="display:none"></div>
+			  <input type="text" id="login-username" placeholder="Username" />
+			  <input type="password" id="login-password" placeholder="Password" />
+			  <button id="login-button">Log In</button>
+			</form>
+
+
 
 			<div class="row">
 				<div class="col-xs-12">
@@ -93,18 +102,27 @@
 			}
 
 		}
+
+		//var username=prompt("Please enter your name","");
+		Parse.initialize("0KNVOKg5KNqqDZgXYfDTNd4ZQWvkoXd70HyWqYFF", "AZAjLdDa6B7vYjwKmOaPYFHt05yckFwXo0fAHN9C");
+		$('#login-button').click(function() {
+			var username = $('#login-username').val();
+			var pw = $('#login-password').val();
+			//alert(username);
+		    
+			x="Welcome, " + username + "!";
+			  
+			var LoginObject = Parse.Object.extend("LoginObject");
+			var login = new LoginObject();
+			login.save({username: $('#login-username').val(), password: $('#login-password').val()}, {
+				success: function(user) {
+					alert(x);
+					self.undelegateEvents();
+					delete self;
+				}
+			});
+		});
+		  
 	</script>
 </body>
 </html>
-<!-- 
-<script type="text/javascript" name="parseSubmit">
-	//Parse test code
-	Parse.initialize("0KNVOKg5KNqqDZgXYfDTNd4ZQWvkoXd70HyWqYFF", "AZAjLdDa6B7vYjwKmOaPYFHt05yckFwXo0fAHN9C");
-	var TestObject = Parse.Object.extend("TestObject");
-	var testObject = new TestObject();
-	testObject.save({foo: "bar"}, {
-	success: function(object) {
-	alert("yay! it worked");
-	}
-});
-</script> -->
