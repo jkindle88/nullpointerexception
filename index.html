@@ -24,19 +24,34 @@
 			<a href="egobooster.html">Ego Booster</a>
 		</nav>
 
-		<div id="main">
-				<nav class="navbar navbar-default" role="navigation" style="background-image:url('images/attheader_1680x68_iClock.png'); background-repeat: no-repeat; background-size:contain;">
-				    <ul class="nav navbar-nav navbar-right">
-				   		<button type="submit" class="btn btn-default">Submit</button>
-				    </ul>
-				</nav>
-
-				<section class="buttonset" style="padding-top: 100px;">
-					<!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
-					<button id="showLeftPush">Menu</button>
-				</section>
+		<div id="main" class="palette palette-sun-flower">
+			<nav class="navbar navbar-default" role="navigation" style="background-image:url('images/attheader_1680x68_iClock.png');background-size:contain;">
+			</nav>
+			<div class="row">
+				<div class="col-md-1 palette palette-carrot">TODAY</div>
+				<div class="col-md-11 palette palette-pumpkin">
+					<center><h3>2.82 hours</h3></center>
+				</div>	
+			</div>
+			<div class="row"><br/></div>
+			<div class="row">
+				<div class="col-md-1 palette palette-carrot">THIS WEEK</div>
+				<div class="col-md-11 palette palette-pumpkin">
+					<table class="table table-striped">
+						<tr>
+							<th>Day</th>
+							<th>Time</th>
+							<th></th>
+						</tr>
+						<tr>
+							<td>Monday</td>
+							<td>7.2 Hours</td>
+							<td><span class="glyphicon glyphicon-chevron-down"></span></td>
+						</tr>
+					</table>
+				</div>	
+			</div>
 		</div>
-
 		<script>
 			var menuLeft = document.getElementById( 'cbp-spmenu-s1' );
 			var showLeftPush = document.getElementById( 'showLeftPush' );
