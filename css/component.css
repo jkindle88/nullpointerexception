@@ -21,11 +21,11 @@
 }
 
 .cbp-spmenu a:hover {
-	background: #258ecd;
+	background: #f7ab78;
 }
 
 .cbp-spmenu a:active {
-	background: #afdefa;
+	background: #fbd7c1;
 	color: #47a3da;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .cbp-spmenu-vertical a {
-	border-bottom: 1px solid #258ecd;
+	border-bottom: 1px solid #ffffff;
 	padding: 1em;
 }
 
@@ -61,7 +61,7 @@
 	float: left;
 	width: 20%;
 	padding: 0.8em;
-	border-left: 1px solid #258ecd;
+	border-left: 1px solid #ffffff;
 }
 
 /* Vertical menu that slides from the left or right */
