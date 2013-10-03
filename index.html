@@ -14,9 +14,9 @@
  		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
  		<link rel="stylesheet" type="text/css" href="css/default.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/flat-ui.css" >
 	</head>
 	<body class="cbp-spmenu-push">
-
 		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1" style="background:#f37e30;">
 			<h3>Menu</h3>
 			<a href="index.html">Home</a>
@@ -24,19 +24,45 @@
 			<a href="egobooster.html">Ego Booster</a>
 		</nav>
 
-		<div id="main">
-				<nav class="navbar navbar-default" role="navigation" style="background-image:url('images/attheader_1680x68_iClock.png'); background-repeat: no-repeat; background-size:contain;">
-				    <ul class="nav navbar-nav navbar-right">
-				   		<button type="submit" class="btn btn-default">Submit</button>
-				    </ul>
-				</nav>
-
-				<section class="buttonset" style="padding-top: 100px;">
-					<!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
-					<button id="showLeftPush">Menu</button>
-				</section>
+		<div id="main" class="palette palette-sun-flower">
+			<div class="row">
+				<div class="col-xs-12">
+					<img src="images/logo.png" class="img-responsive" width="60px" id="showLeftPush"/>
+				</div>
+			</div>
+			<div class="row height-6em">
+				<div class="col-xs-2 palette palette-carrot height-max" id="ribbon-today">
+					<div class="ribbon">
+						<span class="rotate">TODAY</span>
+					</div>
+				</div>
+				<div class="col-xs-10 palette palette-pumpkin height-max">
+					<center><h3>2.82 hours</h3></center>
+				</div>	
+			</div>
+			<div class="row"><br/></div>
+			<div class="row height-6em">
+				<div class="col-xs-2 palette palette-carrot height-max" id="ribbon-week">
+					<div class="ribbon">
+						<span>WEEK</span>
+					</div>
+				</div>
+				<div class="col-xs-10 palette palette-pumpkin height-max">
+					<table class="table table-striped">
+						<tr>
+							<th>Day</th>
+							<th>Time</th>
+							<th></th>
+						</tr>
+						<tr>
+							<td>Monday</td>
+							<td>7.2 Hours</td>
+							<td><span class="glyphicon glyphicon-chevron-down"></span></td>
+						</tr>
+					</table>
+				</div>	
+			</div>
 		</div>
-
 		<script>
 			var menuLeft = document.getElementById( 'cbp-spmenu-s1' );
 			var showLeftPush = document.getElementById( 'showLeftPush' );
