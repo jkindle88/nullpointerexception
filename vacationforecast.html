@@ -12,6 +12,12 @@
 	<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 	<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
 
+	<!-- Jquery Datebox Plugin -->
+    <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.flipbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/default.css"/>
@@ -49,11 +55,13 @@
 			<div style="text-align:center; margin-top:30px;">
 				<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Forecast</a>
 			</div>
+<!-- 			<div>
+				<span id="ForecastDate" style="font-size:20px; color:#ffffff;">Dummy Data</span>
+			</div> -->
 			<div class="row" style="margin-top: 50px;">
 				<div class="col-sm-4 col-md-4 col-lg-4">
 					<a href="#" class="thumbnail" style="height:220px; background-color:#91bced; border:solid; border-color:#ffffff; border-width: 2px;">
-						<div style="text-align: center;"><h1 style="color:#ffffff; margin-top: 40px; font-size:75px;">5</h1></div>
-						<div style="text-align: center; color:#ffffff;">Vacation Days Left</div>
+						<div style="text-align: center;"><h1 style="color:#ffffff; margin-top: 55px; font-size:40px;" id="ForecastDate">Forecast Date</h1></div>
 					</a>
 				</div>
 				<div class="col-sm-4 col-md-4 col-lg-4">
@@ -81,14 +89,13 @@
 					<h4 class="modal-title">Forecast your time</h4>
 				</div>
 				<div class="modal-body" ng-controller="DatepickerDemoCtrl">
-					<pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
-					<div class="" ng-model="dt">
-						<datepicker min="minDate" show-weeks="showWeeks"></datepicker>
+					<div>
+						<input name="timeDateBox" type="date" data-role="datebox" data-options='{"mode": "timeflipbox", "timeFormatOverride":12}' id="timeDateBox" />
+						<span id="vacationDate" style="font-size:20px;">Date</span>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+					<button type="button" class="btn btn-primary" id="Save" data-dismiss="modal">Save</button>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->

@@ -1,4 +1,7 @@
 /* Grid columns heights */
+.height-21em {
+	height: 21em;
+}
 .height-6em {
 	height: 6em;
 }
