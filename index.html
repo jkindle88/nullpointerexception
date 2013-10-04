@@ -6,9 +6,17 @@
 
 	<script src="js/jquery-2.0.3.js"></script>
     <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+
+    <!-- Jquery Datebox Plugin -->
+    <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.flipbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.datebox.min.js"></script>
+
+
 	<script src="js/classie.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/angular.js"></script>
+	<!--<script src="js/angular.js"></script>-->
 	<script src="js/app.js"></script>
 	<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 
@@ -18,112 +26,140 @@
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
 	<link rel="stylesheet" type="text/css" href="css/flat-ui.css" >
 	<link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.3.custom.min.css"/>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" /> 
+
 
 </head>
 <body class="cbp-spmenu-push">
-	<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1" style="background:#f37e30;">
-		<h3>Menu</h3>
-		<a href="index.html">Home</a>
-		<a href="vacationforecast.html">Vacation Forecast</a>
-		<a href="egobooster.html">Ego Booster</a>
-	</nav>
-
-	<div id="main" style="background-color:#34495E; padding-bottom:1000px;">
-		<nav class="navbar navbar-default" role="navigation" style="background-image:url('images/attheader_1680x68_iClock.png'); background-repeat: no-repeat; background-size:cover; border-bottom: solid; border-color: #ffffff; border-width: 1px; border-radius:0px;">
-			<ul class="nav navbar-nav">
-				<img src="images/logo.png" class="img-responsive" width="60px" id="showLeftPush" style="margin-left: 40px; padding-top: 4px; padding-bottom:4px;
-				" />
-			</ul>
+	<div data-role="page">
+		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1" style="background:#f37e30;">
+			<h3>Menu</h3>
+			<a href="index.html">Home</a>
+			<a href="vacationforecast.html">Vacation Forecast</a>
+			<a href="egobooster.html">Ego Booster</a>
 		</nav>
-		<div class="container">
-			<form class="login-form" id="login-form">
-			  <h2>Log In</h2>
-			  <div class="error" style="display:none"></div>
-			  <input type="text" id="login-username" placeholder="Username" />
-			  <input type="password" id="login-password" placeholder="Password" />
-			  <button id="login-button">Log In</button>
-			</form>
 
+		<div id="main" style="background-color:#34495E; padding-bottom:9999px;">
+			<nav class="navbar navbar-default" role="navigation" style="background-image:url('images/attheader_1680x68_iClock.png'); background-repeat: no-repeat; background-size:cover; border-bottom: solid; border-color: #ffffff; border-width: 1px; border-radius:0px;">
+				<ul class="nav navbar-nav">
+					<img src="images/logo.png" class="img-responsive" width="60px" id="showLeftPush" style="margin-left: 40px; padding-top: 4px; padding-bottom:4px;
+					" />
+				</ul>
+			</nav>
+			<div class="container">
+				<form class="login-form" id="login-form">
+				  <h2>Log In</h2>
+				  <div class="error" style="display:none"></div>
+				  <input type="text" id="login-username" placeholder="Username" />
+				  <input type="password" id="login-password" placeholder="Password" />
+				  <button id="login-button">Log In</button>
+				</form>
 
-
-			<div class="row">
-				<div class="col-xs-12">
-				</div>
-			</div>
-			<div class="row height-6em">
-				<div class="col-xs-2 palette palette-carrot height-max" id="ribbon-today">
-					<div class="ribbon">
-						<span class="rotate">TODAY</span>
+				<div class="row">
+					<div class="col-xs-12">
 					</div>
 				</div>
-				<div class="col-xs-10 palette palette-pumpkin height-max">
-					<center><h3>2.82 hours</h3></center>
-				</div>	
-			</div>
-			<div class="row"><br/></div>
-			<div class="row height-6em">
-				<div class="col-xs-2 palette palette-carrot height-max" id="ribbon-week">
-					<div class="ribbon">
-						<span>WEEK</span>
+				<div class="row height-6em">
+					<div class="col-xs-2 palette palette-carrot height-max" id="ribbon-today">
+						<div class="ribbon">
+							<span class="rotate">TODAY</span>
+						</div>
+					</div>
+					<div class="col-xs-10 palette palette-pumpkin height-max">
+						<div style="width: 14em;margin-left: auto;margin-right: auto;">
+							<span class="dash-time">4:27:04</span>
+							<span class="dash-label">hours worked</span>
+						</div>
+					</div>	
+				</div>
+				<div class="row" id="today-bubble" style="display: none;">
+					<div class="col-xs-12">
+						<div class="bubble">
+							<table class="table">
+								<tr>
+									<th>Start</th>
+									<th>Lunch Begin</th>
+									<th>Lunch End</th>
+									<th>End</th>
+								</tr>
+								<tr>
+									<td>
+										 <input name="timeDateBox" type="date" data-role="datebox" data-options='{"mode": "timeflipbox", "timeFormatOverride":12}' id="timeDateBox" />
+										</td>
+									<td><input name="timeDateBox" type="date" data-role="datebox" data-options='{"mode": "timeflipbox", "timeFormatOverride":12}' id="timeDateBox" /></td>
+									<td><input name="timeDateBox" type="date" data-role="datebox" data-options='{"mode": "timeflipbox", "timeFormatOverride":12}' id="timeDateBox" /></td>
+									<td><input name="timeDateBox" type="date" data-role="datebox" data-options='{"mode": "timeflipbox", "timeFormatOverride":12}' id="timeDateBox" /></td>
+								</tr>
+							</table>
+						</div>				
 					</div>
 				</div>
-				<div class="col-xs-10 palette palette-pumpkin height-max">
-					<table class="table table-striped">
-						<tr>
-							<th>Day</th>
-							<th>Time</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>Monday</td>
-							<td>7.2 Hours</td>
-							<td><span class="glyphicon glyphicon-chevron-down"></span></td>
-						</tr>
-					</table>
-				</div>	
+				<div class="row"><br/></div>
+				<div class="row height-6em">
+					<div class="col-xs-2 palette palette-carrot height-max" id="ribbon-week">
+						<div class="ribbon">
+							<span>WEEK</span>
+						</div>
+					</div>
+					<div class="col-xs-10 palette palette-pumpkin height-max">
+						<table class="table table-striped">
+							<tr>
+								<th>Day</th>
+								<th>Time</th>
+								<th></th>
+							</tr>
+							<tr>
+								<td>Monday</td>
+								<td>7.2 Hours</td>
+								<td><span class="glyphicon glyphicon-chevron-down"></span></td>
+							</tr>
+						</table>
+					</div>	
+				</div>
 			</div>
 		</div>
-	</div>
-	<script>
-		var menuLeft = document.getElementById( 'cbp-spmenu-s1' );
-		var showLeftPush = document.getElementById( 'showLeftPush' );
-		var body = document.body;
+		<script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' );
+			var showLeftPush = document.getElementById( 'showLeftPush' );
+			var body = document.body;
 
-		showLeftPush.onclick = function() {
-			classie.toggle( this, 'active' );
-			classie.toggle( body, 'cbp-spmenu-push-toright' );
-			classie.toggle( menuLeft, 'cbp-spmenu-open' );
-			disableOther( 'showLeftPush' );
-		};
+			showLeftPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toright' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeftPush' );
+			};
 
-		function disableOther( button ) {
+			function disableOther( button ) {
 
-			if( button !== 'showLeftPush' ) {
-				classie.toggle( showLeftPush, 'disabled' );
+				if( button !== 'showLeftPush' ) {
+					classie.toggle( showLeftPush, 'disabled' );
+				}
+
 			}
 
-		}
-
-		//var username=prompt("Please enter your name","");
-		Parse.initialize("0KNVOKg5KNqqDZgXYfDTNd4ZQWvkoXd70HyWqYFF", "AZAjLdDa6B7vYjwKmOaPYFHt05yckFwXo0fAHN9C");
-		$('#login-button').click(function() {
-			var username = $('#login-username').val();
-			var pw = $('#login-password').val();
-			//alert(username);
-		    
-			x="Welcome, " + username + "!";
-			  
-			var LoginObject = Parse.Object.extend("LoginObject");
-			var login = new LoginObject();
-			login.save({username: $('#login-username').val(), password: $('#login-password').val()}, {
-				success: function(user) {
-					alert(x);
-					self.undelegateEvents();
-					delete self;
-				}
+			//var username=prompt("Please enter your name","");
+			Parse.initialize("0KNVOKg5KNqqDZgXYfDTNd4ZQWvkoXd70HyWqYFF", "AZAjLdDa6B7vYjwKmOaPYFHt05yckFwXo0fAHN9C");
+			$('#login-button').click(function() {
+				var username = $('#login-username').val();
+				var pw = $('#login-password').val();
+				//alert(username);
+			    
+				x="Welcome, " + username + "!";
+				  
+				var LoginObject = Parse.Object.extend("LoginObject");
+				var login = new LoginObject();
+				login.save({username: $('#login-username').val(), password: $('#login-password').val()}, {
+					success: function(user) {
+						alert(x);
+						// self.undelegateEvents();
+						delete self;
+					}
+				});
 			});
-		});
-		  
-	</script>
+			  
+		</script>
+	</div>
 </body>
 </html>
