@@ -15,6 +15,26 @@ $(document).ready(function(){
 	$('#ribbon-today').toggleClick(
 		function() {
 			$('#today-bubble').show();
+			var lastTime = $(document).data("lastTimeObject");
+			if (typeof lastTime === "undefined") {
+				
+			}
+			else {
+				Parse.initialize("0KNVOKg5KNqqDZgXYfDTNd4ZQWvkoXd70HyWqYFF", "AZAjLdDa6B7vYjwKmOaPYFHt05yckFwXo0fAHN9C");
+				var DailyTimes = Parse.Object.extend("DailyTimes");
+				var dailyTimes = new DailyTimes();
+				var query = new Parse.Query(DailyTimes);
+				query.get(lastTime, {
+					success: function(object) {}
+					},
+					{error: function(object, error) {}
+				});
+				//Lookup is functional, but retrieving the data from the object returned is broken.				
+				//$('#startDateBox').val(dailyTimes.get("LunchStartDate"));
+				//$('#lunchBeginDateBox').val(dailyTimes.get("LunchStartDate"));
+				//$('#lunchEndDateBox').val(dailyTimes.get("LunchEndDate"));
+				//$('#endDateBox').val(dailyTimes.get("EndDate"));
+			}
 		},
 		function() {
 			$('#today-bubble').hide();
@@ -22,7 +42,6 @@ $(document).ready(function(){
 	);
 })
 
-angular.module('null', ['ui.bootstrap']);
 var DatepickerDemoCtrl = function ($scope, $timeout) {
   $scope.today = function() {
     $scope.dt = new Date();
